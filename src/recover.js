@@ -21,7 +21,7 @@ const compromised_wallet = new ethers.Wallet(process.env.COMPROMISED_WALLET_PRIV
 console.log(`compomised wallet : ${compromised_wallet.address}`)
 console.log(`new wallet : ${new_wallet.address}`)
 
-recover();
+await recover();
 
 async function recover() {
   const flashbotsProvider = await FlashbotsBundleProvider.create(provider, ethers.Wallet.createRandom())
