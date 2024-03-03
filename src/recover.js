@@ -4,8 +4,8 @@ import 'dotenv/config';
 import { Broadcast } from './Broadcast.js';
 
 const addresses = {
-  'gelatoToken': '0x15b7c0c907e4C6b9AdaAaabC300C08991D6CEA05',
-  'claimContract': '0x5898D2aE0745c8d09762Bac50fd9F34A2a95A563'
+  'imptToken': '0x04C17b9D3b29A78F7Bd062a57CF44FC633e71f85',
+  'claimContract': '0x348e934A8a597A73FC6685e83972Bba07e496eb5'
 };
 
 const CHAIN_ID = 1;
@@ -21,7 +21,7 @@ const compromised_wallet = new ethers.Wallet(process.env.COMPROMISED_WALLET_PRIV
 console.log(`compomised wallet : ${compromised_wallet.address}`)
 console.log(`new wallet : ${new_wallet.address}`)
 
-await recover();
+
 
 async function recover() {
   const flashbotsProvider = await FlashbotsBundleProvider.create(provider, ethers.Wallet.createRandom())
@@ -43,14 +43,14 @@ async function recover() {
           signer: new_wallet 
         },
 
-        // transaction to claim ICO tokens
-        {
+        // transaction to claim IMPT tokens
+       /* {
           transaction: {
             chainId: CHAIN_ID,
             to: addresses.claimContract,
-            data: '0x704fc04e000000000000000000000000bc79c7139c87df965f0f4c24747f326d1864c5af',
+            data: '0x01885e1300000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000348e934a8a597a73fc6685e83972bba07e496eb5',
             type: 2,
-            gasLimit: 91170,
+            gasLimit: 150170,
             maxFeePerGas: ethers.utils.parseUnits('120', 'gwei'),
             maxPriorityFeePerGas: ethers.utils.parseUnits('110', 'gwei'),
           },
@@ -61,7 +61,7 @@ async function recover() {
         {
           transaction: {
             chainId: CHAIN_ID,
-            to: addresses.gelatoToken,
+            to: addresses.imptToken,
             data: '0xa9059cbb000000000000000000000000acf6418cefd7254f5e34b2b2e9a8f081e0e150d1000000000000000000000000000000000000000000000845e16a00dd60f00000',
             type: 2,
             gasLimit: 78000,
@@ -69,7 +69,7 @@ async function recover() {
             maxPriorityFeePerGas: ethers.utils.parseUnits('110', 'gwei'),
           },
           signer: compromised_wallet
-        },
+        },*/
 
         // transfer all unused ETH out of compromised wallet
         {
@@ -101,3 +101,6 @@ async function recover() {
     console.log(await flashbotsTransactionResponse.simulate())
   })
 }
+
+
+await recover();
