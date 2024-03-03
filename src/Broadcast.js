@@ -3,7 +3,7 @@ import {
     FlashbotsBundleResolution,
   } from "@flashbots/ethers-provider-bundle";
 import { runInThisContext } from "vm";
-  const { EmbedBuilder, WebhookClient } = require('discord.js');
+import { WebhookClient } from 'discord.js';
   
   
   const ENDPOINTS = [
