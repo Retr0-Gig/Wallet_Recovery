@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import { FlashbotsBundleProvider } from '@flashbots/ethers-provider-bundle';
 import 'dotenv/config';
-import { Broadcast } from './Broadcast';
+import { Broadcast } from './Broadcast.js';
 
 const addresses = {
   'gelatoToken': '0x15b7c0c907e4C6b9AdaAaabC300C08991D6CEA05',
