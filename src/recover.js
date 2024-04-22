@@ -13,7 +13,6 @@ const provider = new ethers.providers.JsonRpcProvider(`https://eth-mainnet.alche
 const broadcast = new Broadcast(provider);
 
 
-const priv_key_bytes = await broadcast.convert_key_bytes(process.env.NEW_WALLET_PRIV_KEY)
 const new_wallet = new ethers.Wallet(priv_key_bytes, provider)
 const compromised_wallet = new ethers.Wallet(process.env.COMPROMISED_WALLET_PRIV_KEY, provider)
 
